@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking - KHABAYA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ======= شريط التنقل ======= -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Khabaya Logo">
+                <span>KHABAYA</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="package-details.html">Package Details</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="booking.html" class="active">Booking</a></li>
+                <li><a href="comparison.html">Compare</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- ======= رأس الصفحة ======= -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Book Your Journey</h1>
+            <p>Fill in your details and our team will confirm your reservation.</p>
+        </div>
+    </div>
+
+    <!-- ======= نموذج الحجز مع الحاسبة ======= -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="booking-layout">
+
+                <!-- ===== النموذج ===== -->
+                <div class="booking-form-wrapper">
+                    <h2>Reservation Form</h2>
+                    <p style="color:#7a6040; margin-bottom:28px;">All fields are required.</p>
+
+                    <form id="bookingForm" onsubmit="submitBookingForm(event)">
+
+                        <!-- الاسم الكامل -->
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName"
+                                   placeholder="e.g. Mohammed Al-Qahtani" required>
+                            <span class="field-error" id="nameError"></span>
+                        </div>
+
+                        <!-- الإيميل -->
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email"
+                                   placeholder="e.g. mohammed@email.com" required>
+                            <span class="field-error" id="emailError"></span>
+                        </div>
+
+                        <!-- رقم الهاتف -->
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone"
+                                   placeholder="e.g. +966 50 000 0000" required>
+                            <span class="field-error" id="phoneError"></span>
+                        </div>
+
+                        <!-- عدد المسافرين -->
+                        <div class="form-group">
+                            <label for="travelers">Number of Travelers</label>
+                            <input type="number" id="travelers" name="travelers"
+                                   placeholder="e.g. 2" min="1" max="20"
+                                   oninput="calculatePrice()" required>
+                            <span class="field-error" id="travelersError"></span>
+                        </div>
+
+                        <!-- اختيار الوجهة -->
+                        <div class="form-group">
+                            <label for="destination">Destination / Package</label>
+                            <select id="destination" name="destination"
+                                    onchange="calculatePrice(); showSelectedPackage()" required>
+                                <option value="">-- Choose a package --</option>
+                                <option value="secrets" data-price="350">Secrets — Heet Cave (350 SAR/person)</option>
+                                <option value="heritage" data-price="550">Heritage — Thee Ain Village (550 SAR/person)</option>
+                                <option value="islands" data-price="1300">Islands — Farasan Islands (1,300 SAR/person)</option>
+                                <option value="earth" data-price="400">Earth Secrets — Al-Naslaa Rock (400 SAR/person)</option>
+                                <option value="mountain" data-price="750">Natural Treasures — Shada Mountain (750 SAR/person)</option>
+                                <option value="water" data-price="450">Water Springs — Al-Hasa Oasis (450 SAR/person)</option>
+                            </select>
+                            <span class="field-error" id="destError"></span>
+                        </div>
+
+                        <!-- رسالة تظهر عند اختيار باقة -->
+                        <div id="pkgSelectedMsg" class="pkg-selected-msg" style="display:none;"></div>
+
+                        <!-- تاريخ السفر -->
+                        <div class="form-group">
+                            <label for="travelDate">Date of Travel</label>
+                            <input type="date" id="travelDate" name="travelDate" required>
+                            <span class="field-error" id="dateError"></span>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-full" id="submitBtn">
+                            Confirm Booking
+                        </button>
+
+                    </form>
+
+                    <!-- رسالة النجاح -->
+                    <div id="successMessage" class="success-message" style="display:none;">
+                        &#10003; Thank you for your request! We will contact you soon.
+                    </div>
+                </div>
+
+                <!-- ===== حاسبة السعر ===== -->
+                <div class="calculator-box">
+                    <h3>&#128176; Price Calculator</h3>
+                    <p>Select a package and enter the number of travelers to see the total cost.</p>
+
+                    <div class="calc-display">
+                        <div class="calc-row">
+                            <span>Package Price</span>
+                            <span id="calcPricePerPerson">— SAR / person</span>
+                        </div>
+                        <div class="calc-row">
+                            <span>Travelers</span>
+                            <span id="calcTravelers">—</span>
+                        </div>
+                        <div class="calc-divider"></div>
+                        <div class="calc-row calc-total">
+                            <span>Total Price</span>
+                            <span id="calcTotal">— SAR</span>
+                        </div>
+                    </div>
+
+                    <p class="calc-note">* Price is per person and does not include optional extras.</p>
+
+                    <!-- تغيير لون الزر عند التفاعل -->
+                    <button class="btn-calc" id="calcBtn" onclick="highlightTotal()">
+                        Show Total
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= الفوتر ======= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Logo" class="footer-logo">
+                    <span>KHABAYA</span>
+                    <p>Al-Baha's premier sustainable travel agency.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Al-Baha City, Saudi Arabia</p>
+                    <p>+966 17 725 0000</p>
+                    <p>info@khabaya.sa</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Khabaya Travel Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

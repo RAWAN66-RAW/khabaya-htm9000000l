@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - KHABAYA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ======= شريط التنقل ======= -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Khabaya Logo">
+                <span>KHABAYA</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="package-details.html">Package Details</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="comparison.html">Compare</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- ======= رأس الصفحة ======= -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>Ready to embark on an unforgettable journey? Reach out to us.</p>
+        </div>
+    </div>
+
+    <!-- ======= قسم التواصل ======= -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="contact-grid">
+
+                <!-- معلومات التواصل -->
+                <div class="contact-info">
+
+                    <div class="contact-item">
+                        <div class="contact-icon">&#128205;</div>
+                        <div>
+                            <h3>Address</h3>
+                            <p>Al-Baha City<br>Saudi Arabia</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">&#128222;</div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+966 55 328 4211</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">&#9993;</div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@khabaya.sa</p>
+                        </div>
+                    </div>
+
+                    <!-- روابط السوشيال ميديا -->
+                    <div class="social-section">
+                        <h3>Follow Us</h3>
+                        <div class="social-icons-large">
+                            <a href="#" class="social-icon-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="25">
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-icon-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968830.png" width="25">
+                                <span>Twitter / X</span>
+                            </a>
+                            <a href="#" class="social-icon-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="25">
+                                <span>YouTube</span>
+                            </a>
+                            <a href="#" class="social-icon-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3670/3670166.png" width="25">
+                                <span>Snapchat</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- صورة جمالية -->
+                    <div class="contact-map-img">
+                        <img src="images/tuwaiq-mountains.png" alt="Saudi Arabia">
+                    </div>
+
+                </div>
+
+                <!-- نموذج التواصل -->
+                <div class="contact-form-wrapper">
+                    <h2>Send a Message</h2>
+                    <p>Fill out the form and our team will get back to you shortly.</p>
+
+                    <form id="contactForm" onsubmit="submitContactForm(event)">
+
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName"
+                                   placeholder="e.g. Sara Al-Zahrani" required>
+                            <span class="field-error" id="nameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email"
+                                   placeholder="e.g. sara@email.com" required>
+                            <span class="field-error" id="emailError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone"
+                                   placeholder="e.g. +966 50 000 0000" required>
+                            <span class="field-error" id="phoneError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Interested In</label>
+                            <select id="category" name="category" required>
+                                <option value="">-- Choose a topic --</option>
+                                <option value="earth-secrets">Earth Secrets</option>
+                                <option value="history">Depth of History</option>
+                                <option value="nature">Natural Treasures</option>
+                                <option value="water">Water Springs</option>
+                                <option value="general">General Inquiry</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-full">Send Message</button>
+
+                    </form>
+
+                    <!-- رسالة النجاح -->
+                    <div id="successMessage" class="success-message" style="display:none;">
+                        &#10003; Thank you for your request! We will contact you soon.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= الفوتر ======= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Logo" class="footer-logo">
+                    <span>KHABAYA</span>
+                    <p>Al-Baha's premier sustainable travel agency.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Al-Baha City, Saudi Arabia</p>
+                    <p>+966 55 328 4211</p>
+                    <p>info@khabaya.sa</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">&#128247;</a>
+                        <a href="#" aria-label="Twitter">&#128038;</a>
+                        <a href="#" aria-label="Facebook">&#128065;</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Khabaya Travel Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

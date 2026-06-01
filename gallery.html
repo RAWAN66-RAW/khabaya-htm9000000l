@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - KHABAYA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ======= شريط التنقل ======= -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Khabaya Logo">
+                <span>KHABAYA</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="package-details.html">Package Details</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="comparison.html">Compare</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- ======= رأس الصفحة ======= -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Gallery</h1>
+            <p>A visual journey through Saudi Arabia's most breathtaking destinations.</p>
+        </div>
+    </div>
+
+    <!-- ======= فلتر الصور ======= -->
+    <section class="section-padding">
+        <div class="container">
+
+            <!-- أزرار الفلتر -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+                <button class="filter-btn" onclick="filterGallery('history', this)">History</button>
+                <button class="filter-btn" onclick="filterGallery('nature', this)">Nature</button>
+                <button class="filter-btn" onclick="filterGallery('caves', this)">Caves & Rocks</button>
+                <button class="filter-btn" onclick="filterGallery('water', this)">Water</button>
+            </div>
+
+            <!-- شبكة الصور -->
+            <div class="gallery-grid" id="galleryGrid">
+
+                <div class="gallery-item" data-category="history" onclick="openLightbox(this)">
+                    <img src="images/thee-ain.png" alt="Thee Ain Village">
+                    <div class="gallery-overlay">
+                        <p>Thee Ain Village</p>
+                        <small>Al-Baha</small>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="history" onclick="openLightbox(this)">
+                    <img src="images/al-maqar.png" alt="Al-Maqar Civilization">
+                    <div class="gallery-overlay">
+                        <p>Al-Maqar Civilization</p>
+                        <small>Saudi Arabia</small>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="caves" onclick="openLightbox(this)">
+                    <img src="images/heet-cave.png" alt="Heet Cave">
+                    <div class="gallery-overlay">
+                        <p>Heet Cave</p>
+                        <small>Riyadh</small>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="caves" onclick="openLightbox(this)">
+                    <img src="images/al-naslaa.png" alt="Al-Naslaa Rock">
+                    <div class="gallery-overlay">
+                        <p>Al-Naslaa Rock</p>
+                        <small>Tayma</small>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openLightbox(this)">
+                    <img src="images/shada-mountain.png" alt="Shada Mountain">
+                    <div class="gallery-overlay">
+                        <p>Shada Mountain</p>
+                        <small>Al-Baha</small>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openLightbox(this)">
+                    <img src="images/tuwaiq-mountains.png" alt="Tuwaiq Mountains">
+                    <div class="gallery-overlay">
+                        <p>Tuwaiq Mountains</p>
+                        <small>Central Saudi Arabia</small>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="water" onclick="openLightbox(this)">
+                    <img src="images/ain-zubaida.png" alt="Ain Zubaida">
+                    <div class="gallery-overlay">
+                        <p>Ain Zubaida</p>
+                        <small>Mecca</small>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="water" onclick="openLightbox(this)">
+                    <img src="images/al-hasa.png" alt="Al-Hasa Oasis">
+                    <div class="gallery-overlay">
+                        <p>Al-Hasa Oasis</p>
+                        <small>Eastern Province</small>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openLightbox(this)">
+                    <img src="images/hero.jpg" alt="Saudi Landscape">
+                    <div class="gallery-overlay">
+                        <p>Saudi Arabia Landscape</p>
+                        <small>Kingdom of Saudi Arabia</small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Lightbox (عرض الصورة بالحجم الكامل) ======= -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="">
+            <p id="lightboxCaption"></p>
+            <button class="lightbox-close" onclick="closeLightbox()">&#10005; Close</button>
+        </div>
+    </div>
+
+    <!-- ======= الفوتر ======= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Logo" class="footer-logo">
+                    <span>KHABAYA</span>
+                    <p>Al-Baha's premier sustainable travel agency.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Al-Baha City, Saudi Arabia</p>
+                    <p>+966 17 725 0000</p>
+                    <p>info@khabaya.sa</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Khabaya Travel Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

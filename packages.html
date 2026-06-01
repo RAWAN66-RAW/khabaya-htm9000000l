@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages - KHABAYA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ======= شريط التنقل ======= -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Khabaya Logo">
+                <span>KHABAYA</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="package-details.html">Package Details</a></li>
+                <li><a href="packages.html" class="active">Packages</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="comparison.html">Compare</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- ======= رأس الصفحة ======= -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Choose Your Package</h1>
+            <p>Select a destination from the list or browse our destination cards below.</p>
+        </div>
+    </div>
+
+    <!-- ======= اختيار الوجهة بالقائمة المنسدلة ======= -->
+    <section class="section-padding">
+        <div class="container">
+            <h2>Quick Destination Search</h2>
+            <p class="section-subtitle">Choose a destination from the dropdown to view its package details.</p>
+
+            <div class="dest-search-box">
+                <select id="quickDestSelect" onchange="quickDestinationSelect(this.value)">
+                    <option value="">-- Select a destination --</option>
+                    <option value="secrets">Secrets — Heet Cave (350 SAR/person)</option>
+                    <option value="heritage">Heritage — Thee Ain Village (550 SAR/person)</option>
+                    <option value="islands">Islands — Farasan Islands (1,300 SAR/person)</option>
+                    <option value="earth">Earth Secrets — Al-Naslaa Rock (400 SAR/person)</option>
+                    <option value="mountain">Natural Treasures — Shada Mountain (750 SAR/person)</option>
+                    <option value="water">Water Springs — Al-Hasa Oasis (450 SAR/person)</option>
+                </select>
+                <div id="quickDestResult" class="quick-dest-result" style="display:none;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= بطاقات الوجهات ======= -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <h2>All Destinations</h2>
+            <p class="section-subtitle">Browse all available travel packages.</p>
+
+            <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr);">
+
+                <div class="dest-card">
+                    <div class="card-img-wrapper">
+                        <img src="images/heet-cave.png" alt="Heet Cave">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-location">&#128205; Riyadh &nbsp;|&nbsp; 350 SAR/person</p>
+                        <h3>Heet Cave</h3>
+                        <p>A massive underground lake with glowing emerald waters and spectacular stalactites.</p>
+                        <a href="booking.html" class="btn-outline">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="dest-card">
+                    <div class="card-img-wrapper">
+                        <img src="images/thee-ain.png" alt="Thee Ain Village">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-location">&#128205; Al-Baha &nbsp;|&nbsp; 550 SAR/person</p>
+                        <h3>Thee Ain Village</h3>
+                        <p>An ancient heritage village with centuries-old stone houses and terraced farms.</p>
+                        <a href="booking.html" class="btn-outline">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="dest-card">
+                    <div class="card-img-wrapper">
+                        <img src="images/al-naslaa.png" alt="Al-Naslaa Rock">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-location">&#128205; Tayma &nbsp;|&nbsp; 400 SAR/person</p>
+                        <h3>Al-Naslaa Rock</h3>
+                        <p>A perfectly split giant rock formation that has baffled geologists for centuries.</p>
+                        <a href="booking.html" class="btn-outline">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="dest-card">
+                    <div class="card-img-wrapper">
+                        <img src="images/shada-mountain.png" alt="Shada Mountain">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-location">&#128205; Al-Baha &nbsp;|&nbsp; 750 SAR/person</p>
+                        <h3>Shada Mountain</h3>
+                        <p>A breathtaking mountain peak with cool misty air and traditional stone villages.</p>
+                        <a href="booking.html" class="btn-outline">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="dest-card">
+                    <div class="card-img-wrapper">
+                        <img src="images/al-hasa.png" alt="Al-Hasa Oasis">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-location">&#128205; Eastern Province &nbsp;|&nbsp; 450 SAR/person</p>
+                        <h3>Al-Hasa Oasis</h3>
+                        <p>The world's largest oasis — a UNESCO World Heritage site with artesian springs.</p>
+                        <a href="booking.html" class="btn-outline">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="dest-card">
+                    <div class="card-img-wrapper">
+                        <img src="images/ain-zubaida.png" alt="Farasan Islands">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-location">&#128205; Jizan &nbsp;|&nbsp; 1,300 SAR/person</p>
+                        <h3>Farasan Islands</h3>
+                        <p>A pristine island chain in the Red Sea with rare wildlife and coral reefs.</p>
+                        <a href="booking.html" class="btn-outline">Book Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= الفوتر ======= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Logo" class="footer-logo">
+                    <span>KHABAYA</span>
+                    <p>Al-Baha's premier sustainable travel agency.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Al-Baha City, Saudi Arabia</p>
+                    <p>+966 17 725 0000</p>
+                    <p>info@khabaya.sa</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Khabaya Travel Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

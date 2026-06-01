@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Packages - KHABAYA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ======= شريط التنقل ======= -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Khabaya Logo">
+                <span>KHABAYA</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="package-details.html">Package Details</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="comparison.html" class="active">Compare</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- ======= رأس الصفحة ======= -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Compare Packages</h1>
+            <p>See all packages side by side and choose the right one for you.</p>
+        </div>
+    </div>
+
+    <!-- ======= جدول المقارنة الكامل ======= -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center">Full Package Comparison</h2>
+            <p class="section-subtitle text-center">All prices are per person. Click any row to highlight it.</p>
+
+            <div class="table-wrapper">
+                <table class="comparison-table" id="compTable">
+                    <thead>
+                        <tr>
+                            <th>Package Name</th>
+                            <th>Destination</th>
+                            <th>Price / Person</th>
+                            <th>Duration</th>
+                            <th>Services Included</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr onclick="highlightRow(this)">
+                            <td><strong>Secrets</strong></td>
+                            <td>Heet Cave, Riyadh</td>
+                            <td class="price">350 SAR</td>
+                            <td>1 Day</td>
+                            <td>Expert Guide + Safety Gear</td>
+                            <td>Adventurers</td>
+                        </tr>
+                        <tr class="highlighted-row" onclick="highlightRow(this)">
+                            <td><strong>Heritage</strong></td>
+                            <td>Thee Ain Village, Al-Baha</td>
+                            <td class="price">550 SAR</td>
+                            <td>2 Days / 1 Night</td>
+                            <td>Eco Rural Lodge + Guide + Dinner</td>
+                            <td>History Buffs</td>
+                        </tr>
+                        <tr onclick="highlightRow(this)">
+                            <td><strong>Islands</strong></td>
+                            <td>Farasan Islands, Jizan</td>
+                            <td class="price">1,300 SAR</td>
+                            <td>3 Days / 2 Nights</td>
+                            <td>Flight + Boat + Hotel</td>
+                            <td>Nature Lovers</td>
+                        </tr>
+                        <tr onclick="highlightRow(this)">
+                            <td><strong>Earth Secrets</strong></td>
+                            <td>Al-Naslaa Rock, Tayma</td>
+                            <td class="price">400 SAR</td>
+                            <td>1 Day</td>
+                            <td>Expert Guide + Photography</td>
+                            <td>Explorers</td>
+                        </tr>
+                        <tr onclick="highlightRow(this)">
+                            <td><strong>Natural Treasures</strong></td>
+                            <td>Shada Mountain, Al-Baha</td>
+                            <td class="price">750 SAR</td>
+                            <td>2 Days / 1 Night</td>
+                            <td>Mountain Lodge + Hiking Gear</td>
+                            <td>Hikers</td>
+                        </tr>
+                        <tr onclick="highlightRow(this)">
+                            <td><strong>Water Springs</strong></td>
+                            <td>Al-Hasa Oasis, Eastern Province</td>
+                            <td class="price">450 SAR</td>
+                            <td>1 Day</td>
+                            <td>Guide + Cultural Tour</td>
+                            <td>Culture Seekers</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="booking.html" class="btn-primary">Book a Package Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= مقارنة البطاقات ======= -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center">Our Top 3 Packages</h2>
+            <div class="packages-grid" style="margin-top:40px;">
+
+                <div class="package-card">
+                    <h3>Secrets</h3>
+                    <p class="pkg-subtitle">(Heet Cave)</p>
+                    <p class="pkg-price">350 SAR</p>
+                    <ul class="pkg-features">
+                        <li>&#10003; Duration: 1 Day</li>
+                        <li>&#10003; Expert Guide + Safety Gear</li>
+                        <li>&#10003; Best For: Adventurers</li>
+                    </ul>
+                    <a href="booking.html" class="btn-outline">Book Now</a>
+                </div>
+
+                <div class="package-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Heritage</h3>
+                    <p class="pkg-subtitle">(Thee Ain)</p>
+                    <p class="pkg-price">550 SAR</p>
+                    <ul class="pkg-features">
+                        <li>&#10003; Duration: 2 Days / 1 Night</li>
+                        <li>&#10003; Eco Rural Lodge + Dinner</li>
+                        <li>&#10003; Best For: History Buffs</li>
+                    </ul>
+                    <a href="booking.html" class="btn-primary">Book Now</a>
+                </div>
+
+                <div class="package-card">
+                    <h3>Islands</h3>
+                    <p class="pkg-subtitle">(Farasan)</p>
+                    <p class="pkg-price">1,300 SAR</p>
+                    <ul class="pkg-features">
+                        <li>&#10003; Duration: 3 Days / 2 Nights</li>
+                        <li>&#10003; Flight + Boat + Hotel</li>
+                        <li>&#10003; Best For: Nature Lovers</li>
+                    </ul>
+                    <a href="booking.html" class="btn-outline">Book Now</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= الفوتر ======= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Logo" class="footer-logo">
+                    <span>KHABAYA</span>
+                    <p>Al-Baha's premier sustainable travel agency.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Al-Baha City, Saudi Arabia</p>
+                    <p>+966 17 725 0000</p>
+                    <p>info@khabaya.sa</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Khabaya Travel Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

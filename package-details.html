@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Details - KHABAYA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ======= شريط التنقل ======= -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Khabaya Logo">
+                <span>KHABAYA</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="package-details.html" class="active">Package Details</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="comparison.html">Compare</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- ======= رأس الصفحة ======= -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Package Details</h1>
+            <p>Everything you need to know about your chosen journey.</p>
+        </div>
+    </div>
+
+    <!-- ======= تفاصيل الباقة ======= -->
+    <section class="section-padding">
+        <div class="container">
+
+            <!-- اختيار الباقة للعرض -->
+            <div class="pkg-selector">
+                <label for="pkgSelect"><strong>View package details for:</strong></label>
+                <select id="pkgSelect" onchange="showPackageDetails(this.value)">
+                    <option value="secrets">Secrets - Heet Cave (350 SAR)</option>
+                    <option value="heritage" selected>Heritage - Thee Ain (550 SAR)</option>
+                    <option value="islands">Islands - Farasan (1,300 SAR)</option>
+                </select>
+            </div>
+
+            <!-- تفاصيل الباقة -->
+            <div class="details-grid">
+
+                <!-- صورة الباقة -->
+                <div class="details-img-col">
+                    <img src="images/thee-ain.png" alt="Package Image" id="pkgImage" class="details-main-img">
+
+                    <!-- رسالة تظهر عند اختيار باقة -->
+                    <div id="pkgMessage" class="pkg-msg" style="display:none;"></div>
+                </div>
+
+                <!-- معلومات الباقة -->
+                <div class="details-info-col">
+
+                    <div class="detail-badge" id="pkgBadge">Most Popular</div>
+                    <h2 id="pkgTitle">Heritage Package</h2>
+                    <p id="pkgSubtitle" class="pkg-subtitle-text">Thee Ain Village, Al-Baha</p>
+
+                    <div class="detail-items">
+
+                        <div class="detail-item">
+                            <span class="detail-icon">&#128205;</span>
+                            <div>
+                                <strong>Destination</strong>
+                                <p id="pkgDestination">Thee Ain Village — Al-Baha Region, Saudi Arabia</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-icon">&#8987;</span>
+                            <div>
+                                <strong>Duration</strong>
+                                <p id="pkgDuration">2 Days / 1 Night</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-icon">&#128176;</span>
+                            <div>
+                                <strong>Price per Person</strong>
+                                <p id="pkgPrice" class="price-highlight">550 SAR</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-icon">&#127968;</span>
+                            <div>
+                                <strong>Accommodation</strong>
+                                <p id="pkgHotel">Eco Rural Lodge — traditional stone guesthouse</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-icon">&#127939;</span>
+                            <div>
+                                <strong>Included Activities</strong>
+                                <p id="pkgActivities">Historical village tour, Photography walk, Traditional dinner, Terraced farm visit</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-icon">&#128665;</span>
+                            <div>
+                                <strong>Transportation</strong>
+                                <p id="pkgTransport">Sustainable 4x4 Electric Vehicle, pickup from Abha or Al-Baha Airport</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <a href="booking.html" class="btn-primary" style="margin-top: 24px; display: inline-block;">
+                        Book This Package
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= الفوتر ======= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Logo" class="footer-logo">
+                    <span>KHABAYA</span>
+                    <p>Al-Baha's premier sustainable travel agency.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Al-Baha City, Saudi Arabia</p>
+                    <p>+966 17 725 0000</p>
+                    <p>info@khabaya.sa</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Khabaya Travel Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
